@@ -27,7 +27,7 @@ let clickUpgrades = {
 
 let automaticUpgrades = {
   friends: {
-    price: 5,
+    price: 200,
     quantity: 0,
     multiplier: 20,
     //button: document.getElementById("buy-friends"),
@@ -46,11 +46,11 @@ function crush() {
 }
 
 function collectAutoUpgrades() {
-  autoCrush += automaticUpgrades.friends.multiplier * automaticUpgrades.friends.quantity
+  crushed.amount += (automaticUpgrades.friends.multiplier * automaticUpgrades.friends.quantity)
   console.log(autoCrush);
   let Atemplate = " "
   Atemplate += `
-  <h3 id="total">Total Runs Crushed: ${autoCrush}</h3>
+  <h3 id="total">Total Runs Crushed: ${crushed.amount}</h3>
   `
   document.getElementById("total").innerHTML = Atemplate
 
@@ -77,7 +77,7 @@ function updateMultiplierTotals() {
 
   let multiplierTemplate = " "
   multiplierTemplate += `
-<h3 id="automatic">Automatic run crusher: ${automaticUpgrades.friends.quantity}</h3>
+<h3 id="automatic">Automatic run crusher: ${(automaticUpgrades.friends.multiplier * automaticUpgrades.friends.quantity)}</h3>
 `
   document.getElementById("automatic").innerHTML = multiplierTemplate
 }
